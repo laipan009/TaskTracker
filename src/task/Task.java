@@ -1,3 +1,6 @@
+package task;
+
+import taskstatus.TaskStatus;
 import java.util.UUID;
 
 public class Task {
@@ -7,13 +10,14 @@ public class Task {
     private TaskStatus status;
 
     public Task() {
+        this.id = UUID.randomUUID();
     }
 
-    public Task(String name, String description, TaskStatus status) {
+    public Task(String name, String description) {
         this.id = UUID.randomUUID();
         this.name = name;
         this.description = description;
-        this.status = status;
+        this.status = TaskStatus.NEW;
     }
 
     public String getName() {
@@ -50,7 +54,7 @@ public class Task {
 
     @Override
     public String toString() {
-        return "Task{" +
+        return "task.Task{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", description='" + description + '\'' +
